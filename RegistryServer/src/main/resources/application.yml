@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: RegistryServer
+
+#configure the eureka server
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+
+#Tomcat port numbere where this registry server runs
+server:
+  port: 4567

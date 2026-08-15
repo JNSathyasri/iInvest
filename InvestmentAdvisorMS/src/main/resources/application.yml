@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: InvestmentAdvisorMS  # Name of the microservice
+
+  datasource:
+    url: jdbc:oracle:thin:@//localhost:1521/xe
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: oracle.jdbc.OracleDriver
+
+  jpa:
+    hibernate:
+      ddl-auto: none  # Use 'update' if you want Hibernate to automatically update your schema
+    show-sql: true  # Show SQL queries in logs
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.OracleDialect
+
+# Tomcat server port configuration
+server:
+  port: 4502
+
+# Configure the Eureka client
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:4567/eureka/  # URL for Eureka server
+  instance:
+    prefer-ip-address: true  # Optional: use IP address for Eureka registration
+
+logging:
+  level:
+    org:
+      springframework:
+        jdbc: debug  # Logs detailed info about JDBC operations
