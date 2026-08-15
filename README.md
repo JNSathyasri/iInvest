@@ -21,29 +21,6 @@ The system uses **Spring Boot, Spring Cloud Netflix Eureka, Oracle Database, Spr
 
 The application separates investment-related capabilities into independently maintained services. Eureka provides service registration and discovery.
 
-```text
-                         ┌─────────────────────┐
-                         │    RegistryServer   │
-                         │    Eureka Server    │
-                         │      Port 4567      │
-                         └──────────┬──────────┘
-                                    │
-             ┌──────────────────────┼──────────────────────┐
-             │             │        │        │             │
-             ▼             ▼        ▼        ▼             ▼
-        ┌─────────┐   ┌─────────┐ ┌────────┐ ┌─────────┐ ┌──────────────┐
-        │ AdminMS │   │ BasketMS│ │StockMS │ │Investor │ │ Investment   │
-        │  :4505  │   │  :4501  │ │ :4500  │ │ MS :4503│ │ Advisor MS   │
-        └────┬────┘   └────┬────┘ └───┬────┘ └────┬────┘ └──────────────┘
-             │              │          │            │
-             └──────────────┴──────────┴────────────┘
-                              │
-                              ▼
-                       ┌──────────────┐
-                       │ Oracle DB    │
-                       └──────────────┘
-```
-
 ---
 
 ## Workflow
